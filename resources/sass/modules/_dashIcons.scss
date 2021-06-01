@@ -1,0 +1,38 @@
+.icon {
+	display: inline-block;
+    width: $spacing;
+    height: $spacing;
+    margin: 0 10px 0 0;
+    &:before {
+        content: '';
+        /*background-size:$dash-icon-background-size;
+        background-repeat: no-repeat;
+        position:$dash-icon-position;
+        width: $dash-icon-square-size;
+        height: $dash-icon-square-size;*/
+    }
+    &.icon-dashboard:before{
+        background:url(/assets/images/icon_dashboard.svg);
+    }
+    &.icon-personal:before{
+        background:url(/assets/images/icon_personal.svg);
+    }
+    &.icon-settings:before{
+        background:url(/assets/images/icon_settings.svg);
+    }
+    &.icon-pastes:before{
+        background:url(/assets/images/icon_pastes.svg);
+    }
+    &.icon-apis:before{
+        background:url(/assets/images/icon_apis.svg);
+    }
+    &.icon-signout:before{
+        background:url(/assets/images/icon_signout.svg);
+    }
+    &.create-code-icon:before{
+        background:url(/assets/images/icon_code.svg);
+    }
+    &.create-editor-icon:before{
+        background:url(/assets/images/icon_editor.svg);
+    }
+}

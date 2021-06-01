@@ -1,0 +1,64 @@
+
+// Stash Complete Setting CSS
+.stash-complete-con {
+    .stash-complete-box {
+        max-width: 1140px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        .list-section-con {
+            &.stash-complete-setting {
+                padding: 74px 45px 77px $spacing * 2;
+                margin: 0 0 99px;
+                .list-section-box {
+                    .list-section {
+                        .list-section-header {
+                            margin: 0 0 55px;
+                            .list-section-heading {
+                                h1 {
+                                    font-size: $p-font-m;
+                                    color: $progress-bar-line-text-colour;
+                                }
+                            }
+                        }
+                        .icon-card-con {
+                            margin: 0 0 37px;
+                            .icon-card-box {
+                                align-items: center;
+                                .icon-card-img-box {
+                                    margin: 0 23px 0 0;
+                                }
+                                .icon-card-cntnt {
+                                    h2 {
+                                        font-size: $h4-font-m; // Default $p-font-m
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .limitations-detail-con {
+            margin: 0 0 66px;
+        }
+        .informative-header-con {
+            .informative-header-box {
+                .informative-cntnt {
+                    .progress-bar-con {
+                        margin: 0;
+                        .progress-bar-box {
+                            .progress-bar-item.simple-bar {
+                                .progress-bar-cntnt {
+                                    .progress-bar-line-box {
+                                        height: 29px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+
+// Stripe Index Setting CSS
+.stripe-sec {
+    display: block;
+    background-color: $primary-colour;
+    padding: 0 0 85px;
+    .page-header-sec {
+        padding: $spacing*2 0 $spacing*2;
+        .page-header-box {
+            .page-header-heading-box {
+                h1 {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

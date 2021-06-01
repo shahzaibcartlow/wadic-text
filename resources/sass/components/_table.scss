@@ -1,0 +1,143 @@
+
+// Table Setting CSS
+.table-con {
+    .table-box {
+        table {
+            width: 100%;
+            tbody {
+                tr {
+                    td {
+                        position: relative;
+                        border-bottom: 2px solid $colour-two-type-2;
+                        padding: 27px 0 27px;
+                        &.for-first-column-padding {
+                            padding: 27px 0 27px 26px;
+                        }
+                    }
+                }
+            }
+            &.table {
+                position: relative;
+                .table-title-box {
+                    padding: 0; // Default 0 0 0 26px
+                    .table-title-icon {
+                        display: block;
+                        &.icon {
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            background-position: center;
+                            margin: 0 $spacing / 2 0 0;
+                            &.icon-expired-file,
+                            &.icon-expired-warning-file {
+                                max-width: 55px;
+                                width: 100%;
+                                height: 61px;
+                            }
+                            &.icon-expired-file {
+                                background-image: url('/assets/images/expired-file.png');
+                            }
+                            &.icon-expired-warning-file {
+                                background-image: url('/assets/images/expired-warning-file.png');
+                            }
+                            &.icon-lock-file {
+                                max-width: 46px;
+                                width: 100%;
+                                height: 52px;
+                                background-image: url('/assets/images/lock-file.png');
+                            }
+                            &.icon-lock-file-draft {
+                                max-width: 47px;
+                                width: 100%;
+                                height: 54px;
+                                background-image: url('/assets/images/lock-file-draft.png');
+                            }
+                        }
+                    }
+                    .table-title {
+                        h2 {
+                            width: 455px;
+                            font-size: $p-font-s;
+                            font-family: $font-family-three;
+                            font-weight: 600;
+                            position: relative;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            color: $primary-colour;
+                            margin-bottom: 2px;
+                            top: -3px;
+                        }
+                        p {
+                            font-size: $p-font-s;
+                            font-family: $font-family-three;
+                            font-weight: 600;
+                            color: $primary-colour;
+                            position: relative;
+                        }
+                    }
+                    &.draft {
+                        .table-title {
+                            h2 {
+                                color: $primary-colour;
+                            }
+                            p {
+                                color: $primary-colour;
+                            }
+                        }
+                    }
+                }
+                .table-column-box {
+                    position: relative;
+                    .table-column-title {
+                        p {
+                            @include line-break();
+                            margin: 0;
+                            font-size: $table-column-heading-font-m;
+                            font-family: $font-family-three;
+                            font-weight: 600;
+                            color: $table-column-heading-colour;
+                            span {
+                                position: relative;
+                                &:after {
+                                    content: '';
+                                    display: block;
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                }
+                                &.table-column-heading {
+                                    color: $primary-colour;
+                                    margin: $spacing / 4 0 0;
+                                    //margin: 0 0 18px;
+                                }
+                                &.column-transfered {
+                                    padding-left: 18px;
+                                    &:after {
+                                        width: 13px;
+                                        height: 15px;
+                                        position: absolute;
+                                        top: 0;
+                                        bottom: 0;
+                                        left: 0;
+                                        margin: auto 0;
+                                        background-image: url('/assets/images/mb-arrow-down.png');
+                                    }
+                                }
+                                &.expiry-icon {
+                                    &:after {
+                                        display: inline-block;
+                                        width: 16px;
+                                        height: 16px;
+                                        top: 3px;
+                                        position: relative;
+                                        background-image: url('/assets/images/expiry-icon.png');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

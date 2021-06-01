@@ -1,0 +1,243 @@
+
+// Nav CSS
+nav {
+    &.nav {
+
+    }
+    .nav-con {
+        display: flex;
+        //justify-content: space-between;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        position: relative;
+        .logo-con {
+            display: block;
+            max-width: 235px;
+            width: 100%;
+            height: 45px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 46px 0 0;
+            .logo-box {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                .logo {
+
+                }
+            }
+        }
+        .menus-con {
+            display: flex;
+            width: 100%;
+            .menus-box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                .menus {
+                    display: flex;
+                    margin: 0;
+                    padding: 0;
+                    &.left-menus {
+                        .menu-item,
+                        .sub-menu-item {
+                            margin-right: $spacing;
+                            & > a {
+                                color: $colour-two-type-2;
+                                border-bottom: 1px solid $transparent;
+                                &:hover {
+                                    border-color: $primary-colour;
+                                }
+                            }
+                        }
+                    }
+                    &.right-menus {
+                        .menu-item,
+                        .sub-menu-item {
+                            margin-right: 6px;
+                            &:first-of-type {
+                                margin-right: 14px;
+                            }
+                        }
+                    }
+                    .menu-item,
+                    .sub-menu-item{
+                        display: inline-block;
+                        float: left;
+                        margin-right: 6px;
+                        position: relative;
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+                        & > a {
+                            font-size: $p-font-m;
+                            border-bottom: 1px solid $transparent;
+                            transition: all $hover-style-standard $hover-fade-standard;
+                            &.menu {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 36px;
+                                text-decoration: none;
+                                font-size: $p-font-s;
+                                font-family: $primary-font-family;
+                                span {
+                                    display: block;
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    background-position: center;
+                                    overflow: hidden;
+                                    position: relative;
+                                }
+                                &.menu-btn {
+                                    border: 2px solid $primary-colour;
+                                }
+                                &.sigh-up {
+                                    @include button('primary', 'small');
+                                    width: 75px;
+                                }
+                                &.log-in {
+                                    @include button('two-border-button', 'small');
+                                    width: 65px;
+                                }
+                                &.my-account {
+                                    @include button('primary-border-button', '');
+                                    width: 315px;
+                                    .account-icon {
+                                        width: 25px;
+                                        height: 22px;
+                                        background-image: url('/assets/images/account-setting.png');
+                                        margin: 0 0 0 15px;
+                                    }
+                                }
+                                &.setting {
+                                    @include button('primary', '');
+                                    width: 82px;
+                                    .setting-icon {
+                                        width: 42px;
+                                        height: 42px;
+                                        background-image: url('/assets/images/cog.png');
+                                        margin: 0 0 0;
+                                    }
+                                }
+                                &.moon {
+                                    width: 20px;
+                                    .moon-icon {
+                                        width: 20px;
+                                        height: 20px;
+                                        background-image: url('/assets/images/moon.svg');
+                                        margin: 0 0 0;
+                                    }
+                                }
+                            }
+                        }
+                        .sub-menus-box {
+                            display: none;
+                            width: auto;
+                            min-width: 200px;
+                            height: auto;
+                            position: absolute;
+                            top: 100%;
+                            right: 0;
+                            left: auto;
+                            margin: 0;
+                            padding: 20px 0 0;
+                            background-color: $white;
+                            z-index: 9;
+                            opacity: 0;
+                            visibility: hidden;
+                            transform-origin: top;
+                            transform: translateY(30px);
+                            -webkit-transition: all $hover-style-standard $hover-fade-standard;
+                            -moz-transition: all $hover-style-standard $hover-fade-standard;
+                            -ms-transition: all $hover-style-standard $hover-fade-standard;
+                            -o-transition: all $hover-style-standard $hover-fade-standard;
+                            transition: all $hover-style-standard $hover-fade-standard;
+                            -webkit-animation-name: hoverbottom;
+                            -moz-animation-name: hoverbottom;
+                            -o-animation-name: hoverbottom;
+                            animation-name: hoverbottom;
+                            -webkit-animation-duration: $hover-fade-standard;
+                            -moz-animation-duration: $hover-fade-standard;
+                            -o-animation-duration: $hover-fade-standard;
+                            animation-duration: $hover-fade-standard;
+                            &:after {
+                                content: '';
+                                width: 0;
+                                height: 0;
+                                border-left: 10px solid transparent;
+                                border-bottom: 9px solid $white;
+                                border-right: 10px solid transparent;
+                                position: absolute;
+                                right: 15px;
+                                top: 11px;
+                                margin: 0;
+                            }
+                            .sub-menus {
+                                display: block;
+                                width: 100%;
+                                position: relative;
+                                padding: 10px 0;
+                                margin: 0;
+                                background-color: $white;
+                                box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+                                .sub-menu-item {
+                                    width: 100%;
+                                    padding: 4px 0;
+                                    list-style-type: none;
+                                    & > a {
+                                        display: block;
+                                        width: 100%;
+                                        font-size: $table-column-heading-font-m;
+                                        font-family: $font-family-three;
+                                        font-weight: 600;
+                                        color: $primary-colour;
+                                        padding: 4px 13px 4px 22px;
+                                        text-decoration: none;
+                                        text-transform: capitalize;
+                                        position: relative;
+                                        -webkit-transition: all $hover-style-standard $hover-fade-standard;
+                                        -moz-transition: all $hover-style-standard $hover-fade-standard;
+                                        -ms-transition: all $hover-style-standard $hover-fade-standard;
+                                        -o-transition: all $hover-style-standard $hover-fade-standard;
+                                        transition: all $hover-style-standard $hover-fade-standard;
+                                        &:hover {
+                                            //color: $white;
+                                            background-color: rgba($primary-colour, .1);
+                                        }
+                                    }
+                                }
+                                &:after {
+                                    content: '';
+                                    width: 0;
+                                    height: 0;
+                                    display: table;
+                                    clear: both;
+                                }
+                            }
+                        }
+                        &:hover .sub-menus-box {
+                            display: block;
+                            opacity: 1;
+                            visibility: visible;
+                            transform: translateY(0px);
+                            -webkit-animation-name: hovertop;
+                            -moz-animation-name: hovertop;
+                            -o-animation-name: hovertop;
+                            animation-name: hovertop;
+                            -webkit-animation-duration: $hover-fade-standard;
+                            -moz-animation-duration: $hover-fade-standard;
+                            -o-animation-duration: $hover-fade-standard;
+                            animation-duration: $hover-fade-standard;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

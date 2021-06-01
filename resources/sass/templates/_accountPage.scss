@@ -1,0 +1,41 @@
+
+// Account Page CSS
+.account-page-sec {
+    background-color: $white;
+
+    .list-section-con {
+        &.stash-limit-sec {
+
+        }
+        .list-section-box {
+            .list-section {
+                .list-section-cntnt {
+                    padding: 0; // Default 0 0 0 26px
+                    .row {
+                        margin: 0;
+                        .col {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .info-con {
+        padding: 140px 0 98px;
+        margin: 109px 0 0;
+        .info-box {
+            .info-cntnt {
+                h1, h2 {
+                    font-size: $tab-detail-heading-font-m;
+                    margin: 0 0 68px;
+                }
+                p {
+                    max-width: 790px;
+                    font-size: $p-font-m; // Default $p-font-s
+                    margin: 0 auto 56px;
+                }
+            }
+        }
+    }
+}

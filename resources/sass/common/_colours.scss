@@ -1,0 +1,114 @@
+
+// general white colour
+$white: rgba(255, 255, 255, 1);
+$white-two: rgba(#FEFEFE, 1);
+$white-three: rgba(#F8F9FA, 1);
+$white-faded: RGBA(255, 255, 255, .60);
+
+// Set Transparent Colour
+$transparent: RGBA(0,0,0,0);
+$light-transparency: RGBA(255,255,255,0.85);
+
+// Green
+$primary-colour: rgba(49, 151, 149, 1);
+$primary-colour-dark-1:  rgba(131, 207, 206, 1);
+$primary-colour-type-3:  rgba(127, 146, 164, 1);
+$primary-colour-transparency: rgba($primary-colour, .2);
+
+
+// Black
+$colour-two: #212529;
+$colour-two-type-2: #444C5B;
+$colour-two-type-3: #CED4DA;
+$colour-two-type-4: #343A40;
+$colour-two-type-5: #7F92A4;
+$colour-two-type-6: #000000;
+$colour-two-type-7: #6C757D;
+
+
+// Blue
+$colour-three: rgba(#80BDFF, 1);
+$colour-three-type-2: rgba(0, 123, 255, 1);
+
+
+// general alert box colour
+$warning: rgba(255, 193, 7, 1);
+$error: rgba(220, 53, 19, 1);
+$success: rgba(#28A745, 1);
+
+// text colour
+$text: $primary-colour;
+$text-dark: $white;
+$text-light: $white;
+$link: $colour-two;
+$sign-up-in-page-bg: #E5E5E5;
+
+// unselectable colour
+$unselectable: #E0E0D5;
+
+// overlay colour
+$overlay: rgba(#000, .5);
+$shadow-switch: rgba(#000, .5);
+$overlay-green: rgba($primary-colour-dark-1, .6);
+
+// input border colour
+$input-border: rgba(211, 211, 211, 1);
+
+// input text colour
+$input-text-colour: $colour-two;
+
+// box shadow colour
+$shadow-light: #E6E6D5;
+
+// radio or checkbox button color
+$radio-checkbox-colour: #14024C;
+
+// side menu background color
+$side-menu-background-colour: #C4C9D8;
+
+// modal background layer colour
+$modal-background-layer-colour: rgba(0,0,0,0.4);
+$modal-content-background-colour: #fefefe;
+$modal-content-border-colour: #888;
+
+// Progress bar Colour
+$progress-bar-line-text-colour: rgba(144, 146, 172, 1);
+$progress-bar-line-text-colour-two: rgba(34, 37, 90, 1);
+$progress-bar-line-text-colour-three: rgba(21, 176, 152, 1);
+$progress-bar-border-bottom-colour: rgba(236, 240, 242, 1);
+$progress-bar-primary-colour: rgba(82, 117, 244, 1);
+$progress-bar-primary-colour-two: rgba(92, 207, 189, 1);
+$progress-bar-animation-colour: rgba(255, 255, 255, 0.2);
+$progress-bar-light-blue-track-colour: rgba(215, 222, 244, 1);
+
+// Footer Colour
+$footer-text-colour: $white;
+
+// Steps Colour
+$work-flow-step-heading-colour: rgba(0, 0, 102, 1);
+$work-flow-step-text-colour: rgba(51, 51, 102, 1);
+$work-flow-step-text-colour-two: rgba(51, 51, 51, 1);
+$work-flow-step-link-colour: rgba(7, 172, 146, 1);
+
+// Account Page Background Color
+$select-border-colour: rgba(192, 196, 198, 1);
+
+// Table Column Heading Color
+$table-column-heading-colour: rgba(182, 187, 189, 1);
+
+// Section Header Background Color
+$section-header-background-colour: rgba(214, 221, 250, 1);
+$section-footer-background-colour: rgba(220, 224, 255, 1);
+$section-footer-anchor-colour: rgba(1, 174, 148, 1);
+$informative-title-colour: rgba(77, 118, 251, 1);
+$copy-link-background-colour: rgba(30, 32, 83, 1);
+$copy-link-text-colour: rgba(49, 85, 115, 1);
+
+// Info Section Heading in Plan Component in Dashboard Page
+$info-text-plan-in-dashboard-font-colour: rgba(117, 144, 247, 1);
+
+// Range Slider Track Color
+$range-slider-track-color: rgba(19, 20, 58, 1);
+$range-slider-thumb-color: rgba(90, 203, 186, 1);
+
+

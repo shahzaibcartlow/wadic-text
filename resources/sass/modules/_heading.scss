@@ -1,0 +1,28 @@
+
+// header CSS
+header {
+    &.header-con {
+        //padding: 87px 0 104px;
+        padding: 10px 24px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075);
+        background-color: $white;
+        &.transparent {
+            background-color: $transparent;
+            position: relative;
+        }
+        &.white {
+            background-color: $white;
+        }
+        &.for-sign-in-up {
+            box-shadow: none;
+            margin: 0 0;
+            background-color: $transparent;
+            position: relative;
+            nav {
+                .nav-con {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

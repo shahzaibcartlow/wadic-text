@@ -1,0 +1,148 @@
+
+
+// Input Default Setting CSS
+.form-input-box {
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0 0;
+    &.form-input-box-radio {
+        display: inline-block;
+        margin: 0 12px 0 0;
+        &:last-of-type {
+            margin: 0 0;
+        }
+        label {
+            .title {
+                margin-left: 9px;
+            }
+        }
+    }
+    &.form-input-box-checkbox {
+        label {
+            .title {
+                margin-left: 7px;
+            }
+        }
+    }
+    label {
+        display: block;
+        position: relative;
+        font-size: $p-font-m;
+        font-family: $primary-font-family;
+        color: $input-text-colour;
+        margin: 0 0 $spacing / 4;
+        &.radio-checkbox-setting {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+        }
+        &.label-title {
+            &.radio-checkbox-setting {
+            }
+        }
+        span {
+            &.label-sub-title {
+
+            }
+        }
+        .title {
+            order: 2;
+            -webkit-order: 2;
+            a {
+                color: $primary-colour;
+                text-decoration: none;
+            }
+        }
+        .input-field {
+            margin: 25px 0 0;
+            position: relative;
+            &.input-field-radio-checkbox {
+                margin: 2px 0 0;
+                order: 1;
+                -webkit-order: 1;
+                input[type=radio],
+                input[type=checkbox] {
+                    width: 13px;
+                    height: 13px;
+                    background-color: $white;
+                    border-radius: 2px;
+                }
+            }
+            input:not([type=checkbox]):not([type=radio]),
+            select,
+            textarea {
+                width: 100%;
+                height: 46px;
+                font-size: $p-font-s;
+                font-family: $primary-font-family;
+                color: $input-text-colour;
+                padding: $input-padding;
+                background-color: $white;
+                border: 1px solid $colour-two-type-3;
+                border-radius: 5px;
+                outline: none;
+                overflow: hidden;
+                transition: all $hover-fade-standard $hover-style-standard;
+                &.input-item {
+
+                }
+            }
+            select {
+            }
+        }
+    }
+    .input-field {
+        position: relative;
+        margin: 0 0 $spacing/2;
+        &.password-hint {
+            margin-bottom: 4px;
+        }
+        input:not([type=checkbox]):not([type=radio]),
+        select,
+        textarea {
+            width: 100%;
+            height: 46px;
+            font-size: $p-font-s;
+            font-family: $primary-font-family;
+            color: $input-text-colour;
+            padding: $input-padding;
+            background-color: $white;
+            border: 1px solid $colour-two-type-3;
+            border-radius: 5px;
+            outline: none;
+            overflow: hidden;
+            transition: all $hover-style-standard $hover-fade-standard;
+            &:focus {
+                border-color: $colour-three;
+                box-shadow: 0 0 0 3.2px $colour-three-type-2;
+            }
+            &.input-item {
+
+            }
+        }
+        select {
+        }
+        &.custom-url {
+            position: relative;
+            .custom-url-box {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 200px;
+                height: 25px;
+                position: absolute;
+                padding: 0 0 0 12px;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                font-size: $p-font-s;
+                font-family: $primary-font-family;
+                color: $colour-two-type-5;
+                z-index: 3;
+            }
+        }
+    }
+}

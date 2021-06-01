@@ -1,0 +1,158 @@
+
+// Dropdown Setting CSS
+.dropdown-con {
+    display: block;
+    max-width: 60px;
+    width: 100%;
+    z-index: 1;
+    &.quota-dropdown-con {
+        max-width: 205px;
+    }
+    &.no-title {
+        .dropdown-box {
+            .dropdown-title {
+                .icon {
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .dropdown-box {
+        display: block;
+        position: relative;
+        .dropdown-title {
+            font-size: $p-font-s;
+            font-family: $primary-font-family;
+            font-weight: normal;
+            color: $colour-two-type-2;
+            cursor: pointer;
+            height: 36px;
+            .icon {
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                position: relative;
+                margin: 0 0 0 10px;
+                overflow: hidden;
+                &.icon-dropdown-ellips {
+                    width: 29px;
+                    height: 11px;
+                    background-image: url('/assets/images/dropdown-ellips.png');
+                }
+                &.icon-dropdown-cog {
+                    width: 32px;
+                    height: 32px;
+                    background-image: url('/assets/images/cog-icon.png');
+                }
+            }
+        }
+        .dropdown-menu-box {
+            display: none;
+            width: auto;
+            min-width: 180px;
+            height: auto;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: auto;
+            margin: 0;
+            padding: 13px 0 0;
+            background-color: $transparent;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transform-origin: top;
+            transform: translateY(30px);
+            -webkit-transition: all $hover-style-standard $hover-fade-standard;
+            -moz-transition: all $hover-style-standard $hover-fade-standard;
+            -ms-transition: all $hover-style-standard $hover-fade-standard;
+            -o-transition: all $hover-style-standard $hover-fade-standard;
+            transition: all $hover-style-standard $hover-fade-standard;
+            -webkit-animation-name: hoverbottom;
+            -moz-animation-name: hoverbottom;
+            -o-animation-name: hoverbottom;
+            animation-name: hoverbottom;
+            -webkit-animation-duration: $hover-fade-standard;
+            -moz-animation-duration: $hover-fade-standard;
+            -o-animation-duration: $hover-fade-standard;
+            animation-duration: $hover-fade-standard;
+            /*&:after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-bottom: 9px solid $white;
+                border-right: 10px solid transparent;
+                position: absolute;
+                right: 15px;
+                top: 11px;
+                margin: 0;
+            }*/
+            .dropdown-menus {
+                display: block;
+                width: 100%;
+                position: relative;
+                padding: 18px 0 26px 0;
+                margin: 0;
+                background-color: $white;
+                box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+                .dropdown-menu-item {
+                    list-style-type: none;
+                    padding: 4px 0;
+                    .dropdown-menu {
+                        font-size: $table-column-heading-font-m;
+                        font-family: $font-family-three;
+                        font-weight: 600;
+                        color: $primary-colour;
+                        padding: 4px 13px 4px 22px;
+                        margin: 0;
+                        text-decoration: none;
+                        text-transform: capitalize;
+                        transition: all $hover-style-standard $hover-fade-standard;
+                        &:hover {
+                            background-color: rgba($primary-colour, .1);
+                        }
+                        .dropdown-menu-icon {
+                            position: relative;
+                            &.icon-clock {
+                                width: 22px;
+                                height: 25px;
+                            }
+                            &.icon-pencil {
+                                width: 21px;
+                                height: 21px;
+                            }
+                            &.icon-cog {
+                                width: 21px;
+                                height: 24px;
+                            }
+                            &.icon-trash {
+                                width: 21px;
+                                height: 28px;
+                            }
+                            &.icon-share {
+                                width: 21px;
+                                height: 17px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:hover .dropdown-menu-box {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+            -webkit-animation-name: hovertop;
+            -moz-animation-name: hovertop;
+            -o-animation-name: hovertop;
+            animation-name: hovertop;
+            -webkit-animation-duration: $hover-fade-standard;
+            -moz-animation-duration: $hover-fade-standard;
+            -o-animation-duration: $hover-fade-standard;
+            animation-duration: $hover-fade-standard;
+        }
+    }
+}

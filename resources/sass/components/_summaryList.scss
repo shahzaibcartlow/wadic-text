@@ -1,0 +1,43 @@
+
+// Summary List Setting CSS
+.summary-list-con {
+    .summary-list-box {
+        text-align: center;
+        .summary-list {
+            margin: 0;
+            padding: 0;
+            .summary-list-item-box {
+                list-style-type: none;
+                margin: 0 35px $spacing 0;
+                .summary-list-item {
+                    .summary-list-item-icon {
+                        max-width: 17px;
+                        width: 100%;
+                        height: auto;
+                        margin: 0 10px 0 0;
+                        position: relative;
+                    }
+                    .summary-list-item-cntnt {
+                        font-size: $p-font-m;
+                        font-family: $font-family-two;
+                        color: $colour-two;
+                        position: relative;
+                        span {
+                            color: $primary-colour;
+                            margin: 0 15px 0 0;
+                        }
+                        p {
+                            font-size: $p-font-s;
+                            font-family: $font-family-three;
+                            color: $colour-two;
+                            span {
+                                color: $primary-colour;
+                                margin: 0 15px 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+
+// Banner CSS
+.banner-con {
+    background-color: $white;
+    padding: 0;
+    position: relative;
+    .banner-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 798px;
+        position: relative;
+        .banner-header-box {
+            .banner-heading {
+                text-align: center;
+                h1 {
+                    font-size: $h1-font-m;
+                    font-family: $font-family-two;
+                    font-weight: bold;
+                    color: $colour-two;
+                    margin: 0 0 $spacing;
+                    padding: 0;
+                    position: relative;
+                    @include line-break();
+                    span {
+                        color: $primary-colour-dark-1;
+                    }
+                }
+            }
+        }
+        .banner-cntnt-box {
+            .banner-cntnt {
+                p {
+                    display: block;
+                    max-width: 635px;
+                    width: 100%;
+                    height: auto;
+                    text-align: center;
+                    font-size: $p-font-m;
+                    font-family: $font-family-two;
+                    color: $colour-two;
+                    margin: 0 0 $spacing;
+                    padding: 0;
+                    position: relative;
+                }
+                a {
+                    @include button('primary', 'medium');
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    max-width: 152px;
+                    width: 100%;
+                    height: 46px;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .banner-image-con {
+            display: none;
+            width: 100%;
+            height: 555px;
+            overflow: hidden;
+            //background-image: url('/assets/images/banner.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            position: relative;
+            .banner-image-box {
+                .banner-image {
+                    position: relative;
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

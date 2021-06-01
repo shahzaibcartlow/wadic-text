@@ -1,0 +1,326 @@
+
+// Simple background color setting OR more
+.sign-page-setting-con {
+    position: relative;
+    .sign-page-setting-box {
+        padding: $spacing 0 0;
+        background-color: $sign-up-in-page-bg;
+        min-height: 100vh;
+    }
+}
+
+// Sign Up And In Section CSS Setting
+.sign-up-in-bg {
+    display: block;
+    .sign-up-in-sec {
+        position: relative;
+        padding: 0;
+        .row {
+            margin: 0;
+            .col {
+                flex: 1 0 auto;
+                padding: 0;
+            }
+        }
+        .order-change-for-log-in {
+            order: 2;
+            -webkit-order: 2;
+        }
+        .sign-up-in-con {
+            position: relative;
+            max-width: 655px;
+            width: 100%;
+            height: auto;
+            padding: 60px;
+            margin: $spacing auto;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.176);
+            border-radius: 5px;
+            &.flex-container {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .sign-up-in-box {
+                display: block;
+                //max-width: 470px;
+                width: 100%;
+                height: auto;
+                margin: auto;
+                position: relative;
+                .sign-up-in-header {
+                    //max-width: 460px;
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                    position: relative;
+                    .sign-up-in-header-img {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+                    .sign-up-in-heading {
+                        text-align: left;
+                        h1,
+                        h2,
+                        p {
+                            margin: 0;
+                        }
+                        h1 {
+                            font-size: $p-font-l;
+                            font-family: $font-family-two;
+                            color: $colour-two-type-4;
+                        }
+                        h2 {
+                            font-size: $p-font-l;
+                            font-family: $font-family-two;
+                            color: $colour-two-type-4;
+                        }
+                        p {
+                        }
+                    }
+                }
+                .sign-up-in-content {
+                    //max-width: 460px;
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                    position: relative;
+                    .sign-up-in-form-box {
+                        position: relative;
+
+                        .summary-list-con {
+                            .summary-list-box {
+                                margin: 0 0 45px;
+                                .summary-list {
+                                    .summary-list-item-box {
+                                        margin: 0 0 4px;
+                                        &.reset-link {
+                                            &:hover {
+                                                .summary-list-item {
+                                                    .summary-list-item-cntnt {
+                                                        color: $colour-two;
+                                                        a {
+                                                            color: $colour-two;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .summary-list-item {
+                                            .summary-list-item-cntnt {
+                                                font-size: $extra-small-font;
+                                                color: $colour-two-type-5;
+                                                transition: all $hover-style-standard $hover-fade-standard;
+                                                a {
+                                                    font-size: $extra-small-font;
+                                                    font-family: $font-family-two;
+                                                    text-decoration: none;
+                                                    color: $colour-two-type-5;
+                                                    transition: all $hover-style-standard $hover-fade-standard;
+                                                }
+                                                span {
+                                                    &.success {
+                                                        color: $success;
+                                                    }
+                                                    &.warning {
+                                                        color: $warning;
+                                                    }
+                                                    &.error {
+                                                        color: $error;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } // summary list container end
+
+                        button {
+                            &.sign-up-in-btn {
+                                @include button("primary", "medium");
+                            }
+                        }
+                        button:disabled,
+                        button[disabled] {
+                            background-color: $primary-colour-type-3;
+                            border-color: $primary-colour-type-3;
+                            &:hover,
+                            &:focus{
+                                background-color: $primary-colour-type-3;
+                            }
+                        }
+                        a {
+                            &.sign-up-in-btn {
+                                @include button("primary", "medium");
+                            }
+                        }
+                        .form-input-box {
+                            .input-field {
+                                &.user-icon:after {
+                                    background-image: url('/assets/images/user-icon.png');
+                                }
+                                &.pass-icon:after {
+                                    background-image: url('/assets/images/pass-icon.png');
+                                }
+                                &.success-icon {
+                                    input {
+                                        border-color: $success;
+                                    }
+                                    &:after {
+                                        width: 17px;
+                                        height: 12px;
+                                        background-image: url('/assets/images/input-tick.svg');
+                                    }
+                                }
+                                &:after {
+                                    content: '';
+                                    display: block;
+                                    overflow: hidden;
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    background-position: center;
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    right: 17px;
+                                    margin: auto 0;
+                                }
+                                input:not([type=checkbox]):not([type=radio]) {
+                                    padding-right: 36px;
+                                }
+                            }
+                        }
+                        .forget-link-box {
+                            display: block;
+                            position: relative;
+                            text-align: center;
+                            margin: 15px 0 0;
+                            p {
+                                margin: 0;
+                                padding: 0;
+                            }
+                            .forget-link {
+                                font-size: $p-font-s;
+                                font-family: $primary-font-family;
+                                color: $colour-two-type-6;
+                                a {
+                                    color: $primary-colour;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                }
+                .sign-up-in-footer {
+                    max-width: 568px;
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    margin: $spacing * 2 auto 0;
+                }
+            }
+            &.for-form-con {
+                background-color: $white;
+                .sign-up-in-box {
+                    .sign-up-in-header {
+                        .sign-up-in-header-img {
+                            max-width: 128px;
+                            height: 122px;
+                            margin: 0 auto 21px;
+                        }
+                        .sign-up-in-heading {
+                            margin-bottom: 45px;
+                            h1 {
+                                font-size: $p-font-l;
+                                font-family: $font-family-two;
+                                color: $colour-two-type-4;
+                            }
+                            p {
+                                font-size: $p-font-m;
+                                color: $colour-two-type-2;
+                                font-family: $font-family-two;
+                                margin-bottom: $spacing/2;
+                            }
+                        }
+                    }
+                    .sign-up-in-content {
+                        .sign-up-in-form-box {
+                            .form-input-box {
+                                label {
+                                    &.label-title {
+                                        &.radio-checkbox-setting {
+                                            margin-bottom: 45px;
+                                        }
+                                    }
+                                }
+                            }
+                            .forget-link-box {
+                                margin: 15px 0 0;
+                                .forget-link {
+                                    font-size: $p-font-s;
+                                    font-family: $primary-font-family;
+                                    color: $colour-two-type-6;
+                                    a {
+                                        color: $primary-colour;
+                                    }
+                                }
+                            }
+                            .sign-up-in-btn {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 100%;
+                                height: 46px;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                }
+            }
+            &.for-info-con {
+                background-color: $primary-colour-dark-1;
+                .sign-up-in-box {
+                    .sign-up-in-header {
+                        .sign-up-in-header-img {
+                            max-width: 217px;
+                            height: 149px;
+                            margin: 127px auto $spacing * 2;
+                        }
+                        .sign-up-in-heading {
+                            h2 {
+                                font-size: $h1-font-m; // Default $h3-font-m
+                                color: $white;
+                                letter-spacing: 1.5pt;
+                                margin-bottom: $spacing * 2;
+                            }
+                            p {
+                                font-size: $h3-font-m; // Default $h5-font-m
+                                color: $white;
+                                font-family: $primary-font-family;
+                                letter-spacing: 1.5pt;
+                                margin-bottom: 27px;
+                            }
+                        }
+                    }
+                    .sign-up-in-content {
+                        .sign-up-in-form-box {
+                            .sign-up-in-btn {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                max-width: 275px;
+                                width: 100%;
+                                height: 78px;
+                                margin: 0 auto;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

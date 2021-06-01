@@ -1,0 +1,113 @@
+
+// List Section Setting CSS
+.list-section-con {
+    padding: 0 0;
+    margin: 0 0;
+    background-color: $white;
+    .list-section-box {
+        .list-section {
+            .list-section-header {
+                padding: 0 0;
+                margin: 0 0 30px;
+                .list-section-heading {
+                    display: block;
+                    width: 100%;
+                    h1 {
+                        font-size: $h5-font-m;
+                        font-family: $primary-font-family;
+                        font-weight: bold;
+                        color: $colour-two;
+                        text-align: left;
+                        @include line-break();
+                        span {
+                            font-size: $p-font-l;
+                            color: $colour-two-type-3;
+                            margin: 0 0;
+                        }
+                    }
+                }
+                .list-section-second-part {
+                    .form-input-box {
+                        margin: 0;
+                        select,
+                        input {
+                            width: 323px;
+                            height: 50px;
+                            color: $primary-colour;
+                            padding: 0 16px;
+                        }
+                    }
+                    .link-box {
+                        &.no-title {
+                            a {
+                                .icon {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        a {
+                        font-size: $tab-button-font-m;
+                        font-family: $font-family-three;
+                        font-weight: normal;
+                        color: $primary-colour;
+                        text-decoration: none;
+                        cursor: pointer;
+                            .icon {
+                                display: inline-block;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                                position: relative;
+                                margin: 0 0 0 10px;
+                                overflow: hidden;
+                                &.icon-cog {
+                                    width: 42px;
+                                    height: 42px;
+                                    background-image: url('/assets/images/cog-icon.png');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .list-section-cntnt {
+                position: relative;
+            }
+        }
+        .list-section-footer {
+            position: relative;
+            padding: 59px 0 46px;
+            background-color: $section-footer-background-colour;
+            .list-section-footer-box {
+                .list-section-footer-info-icon {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 35px;
+                    height: 35px;
+                    overflow: hidden;
+                    top: 10px;
+                    bottom: 0;
+                    right: 20px;
+                    margin: auto 0;
+                    position: absolute;
+                    z-index: 3;
+                }
+                .list-section-footer-cntnt {
+                    padding: 0 55px 0;
+                    p {
+                        font-size: $p-font-m;
+                        color: $primary-colour;
+                        margin: 0;
+                        padding: 0;
+                        a {
+                            text-decoration: underline;
+                            color: $section-footer-anchor-colour;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

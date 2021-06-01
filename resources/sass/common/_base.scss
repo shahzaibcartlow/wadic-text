@@ -1,0 +1,162 @@
+
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $primary-font-family;
+  font-size: 12px;
+  color: $primary-colour;
+  margin: 0;
+    header {
+        width: 100%;
+        padding: 0;
+        background: $white;
+        top: 0;
+        position: sticky;
+        float: none;
+        z-index: 1000;
+    }
+    section {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: $h1-font-m;
+        font-weight: $bold-medium;
+        font-family: $primary-font-family;
+        margin: $h1-margin-l 0;
+        @include medium {
+            font-size: $h1-font-m;
+            margin: 0 0 $h1-margin-m 0;
+        }
+    }
+    h2 {
+        font-size: $h2-font-m;
+        font-family: $primary-font-family;
+        font-weight: $bold-medium;
+        margin: $h2-margin-l 0;
+        //line-height: $h2-line-height-xl;
+        @include medium {
+            font-size: $h2-font-m;
+            //line-height: $h2-line-height-s;
+            margin: $h2-margin-m 0;
+        }
+    }
+    h3 {
+        font-size: $h3-font-m;
+        font-weight: $bold-medium;
+        font-family: $primary-font-family;
+        //line-height: $h3-line-height-xl;
+        margin: $h3-margin-l 0;
+        @include medium {
+            font-size: $h3-font-m;
+            //line-height: $h3-line-height-s;
+            margin: $h3-margin-m 0;
+        }
+    }
+    h4 {
+        font-size: $h4-font-m;
+        font-weight: 700;
+        font-family: $primary-font-family;
+        margin: $h4-margin-l 0;
+        @include medium {
+            font-size: $h4-font-m;
+            margin: $h4-margin-m 0;
+        }
+    }
+    p {
+        font-size: $p-font-m;
+        //line-height: $p-line-height-xl;
+        margin: $p-margin-l 0;
+        @include medium {
+            font-size: $p-font-m;
+            //line-height: $p-line-height-m;
+            margin: $p-margin-m 0;
+        }
+    }
+    li {
+        font-size: $p-font-m;
+        //line-height: $xs-line-height;
+        @include medium {
+            font-size: $p-font-m;
+        }
+    }
+    a {
+        color: $link;
+    }
+    img {
+        //width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+    table {
+        tr {
+            td {
+                vertical-align: top;
+            }
+        }
+    }
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        @include medium {
+            flex-direction: column;
+        }
+        .container-item {
+            flex: 50%;
+        }
+    }
+    .container,
+    .inner-wrapper,
+    .inner-wrapper-large {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+    .container {
+        max-width: $container-width-without-padding;
+        padding: 0 $spacing / 2;
+    }
+    .inner-wrapper {
+        max-width: $content-width-without-padding;
+    }
+    .inner-wrapper-large {
+        max-width: $content-width-without-padding + $spacing * 4;
+    }
+    .clear {
+        display: table;
+        clear: both;
+    }
+    .show {
+        display: block;
+    }
+    .none {
+        display: none !important;
+    }
+    .hide {
+        display: none;
+    }
+    .no-visibility {
+        visibility: hidden;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $overlay;
+    }
+    .meter {
+        margin-top: 8px;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,46 @@
+
+.create-stash-con {
+    display: block;
+    background-color: $primary-colour;
+    padding: 85px 0;
+    .steps-con {
+        margin: 0 0 $spacing * 2;
+    }
+    .list-section-con {
+        &.for-single-cards {
+            padding: 72px 77px 106px;
+            margin-bottom: 107px;
+            .list-section {
+                .list-section-header {
+                    border-bottom: none;
+                    padding: 0 0;
+                    margin: 0 0 79px;
+                    .list-section-heading {
+                        h1 {
+                            font-size: $h2-font-m; // Default $h4-font-m
+                            font-family: $primary-font-family;
+                            color: $primary-colour;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .inner-wrapper.info-con {
+        max-width: 999px;
+        .info-box {
+            .info-cntnt {
+                text-align: center;
+                h1 {
+                    font-size: $h2-font-m; // Default $h4-font-m
+                    margin: 0 0 72px;
+                }
+                p {
+                    max-width: 835px;
+                    font-size: $p-font-m; // Default $p-font-s
+                    margin: $spacing auto;
+                }
+            }
+        }
+    }
+}

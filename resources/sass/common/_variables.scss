@@ -1,0 +1,139 @@
+
+// media screen sizes
+$size-small: 480px;
+$size-medium: 768px;
+$size-large: 980px;
+$size-extralarge: 1230px;
+
+// box shadow size and colour
+$box-shadow: 0px 0px 10px $shadow-light;
+
+// font family set
+$primary-font-family: 'SF Pro Display';
+$font-family-two: 'Sofia Pro';
+$font-family-three: 'Open Sans', sans-serif;
+
+// Border radius set
+$primary-border-radius: 5px;
+
+// letter spacing set
+$letter-spacing: 1px;
+
+// Distances
+$spacing: 32px;
+$column-gap-standard: $spacing;
+$right-spacing: $spacing;
+$left-spacing: $spacing;
+$bottom-spacing: $spacing;
+
+// Container Width Size
+$container-width-without-padding: 1270px; // Default 1523px
+$container-width-with-padding: 1302px; // Default 1555px
+$sign-up-in-container-without-padding: 1140px; // Default 1453px
+$sign-up-in-container-with-padding: 1172px; // Default 1485px
+
+// Content Page Width
+$content-width-without-padding: 1100px; // Default 1354px
+$content-width-with-padding: 1132px; // Default 1386px
+
+
+// Text Width
+//$text-width: 730px;
+//$text-width-narrow: 550px;
+
+// Border Styles
+$border-size: 2px;
+$border-size-large: 6px;
+$primary-border: $border-size solid $input-border;
+
+// transition Timings and action
+$hover-fade-standard: 300ms;
+$hover-style-standard: ease-in-out;
+
+/**
+  *** Set Thickness of Text ***
+ */
+$bold: 900;
+$bold-medium: 700;
+$bold-light: 600;
+
+/**
+  *** Set H1 Bottom Margin ***
+ */
+$h1-margin-l: 24px;
+$h1-margin-m: 12px;
+$h1-margin-s: $h1-margin-m;
+
+/**
+  *** Set H2 Margin Bottom ***
+ */
+$h2-margin-l: 24px;
+$h2-margin-m: 12px;
+$h2-margin-s: $h2-margin-m;
+
+/**
+  *** Set H3 Margin Bottom ***
+ */
+$h3-margin-l: 20px;
+$h3-margin-m: 10px;
+$h3-margin-s: $h3-margin-m;
+
+/**
+  *** Set H4 Margin Bottom ***
+ */
+$h4-margin-l: 20px;
+$h4-margin-m: 10px;
+$h4-margin-s: $h4-margin-m;
+
+/**
+  *** Set P Margin Bottom ***
+ */
+$p-margin-l: 24px;
+$p-margin-m: 12px;
+$p-margin-s: $p-margin-m;
+
+/**
+  *** Set Theme Primary Line Height ***
+  *** Theme Primary Font Size are xl-52px/63px, l-38px/47px, m-24px/29px, s-20px/24px, xs-16px/19px  ***
+ */
+$xl-line-height: 5.25rem;
+$l-line-height: 3.9167rem;
+$m-line-height: 2.4167rem;
+$s-line-height: 2rem;
+$xs-line-height: 1.5833rem;
+
+/**
+  *** Set H1 Line Height ***
+ */
+$h1-line-height-l: 5.25rem;
+$h1-line-height-m: 2.625rem;
+$h1-line-height-s: $h1-line-height-m;
+
+/**
+  *** Set H2 Line Height ***
+ */
+$h2-line-height-l: 3.9167rem;
+$h2-line-height-m: 1.95835rem;
+$h2-line-height-s: $h2-line-height-m;
+
+/**
+  *** Set H3 Line Height ***
+ */
+$h3-line-height-l: 2.4167rem;
+$h3-line-height-m: 1.20835rem;
+$h3-line-height-s: $h3-line-height-m;
+
+/**
+  *** Set H4 Line Height ***
+ */
+$h4-line-height-l: 1.5833rem;
+$h4-line-height-m: 1.20835rem;
+$h4-line-height-s: $h4-line-height-m;
+
+/**
+  *** Set Paragraph Line Height ***
+ */
+$p-line-height-l: 1.5833rem;
+$p-line-height-m: 1.583;
+$p-line-height-s: $p-line-height-m;
+

@@ -1,0 +1,87 @@
+
+// Footer CSS
+footer {
+    position: relative;
+    &.transparent {
+        background-color: $colour-two;
+    }
+    &.primary-colour-dark-3 {
+        background-color: $colour-two;
+    }
+    &.footer-con {
+        //padding: 53px 0 63px;
+        padding: $spacing/4 24px;
+        .footer-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 56px;
+            p {
+                font-size: $p-font-s;
+                font-family: $primary-font-family;
+                color: $white;
+                margin: 0;
+                padding: 0;
+            }
+            a {
+                font-size: $p-font-s;
+                font-family: $primary-font-family;
+                color: $white;
+                position: relative;
+                text-decoration: none;
+                transition: all $hover-style-standard $hover-fade-standard;
+                &:hover {
+                    color: $primary-colour;
+                }
+                &.footer-nav-menu {
+                }
+            }
+            .copy-rights-box {
+                .copy-rights {
+                    position: relative;
+                    p {
+                    }
+                }
+            }
+            .footer-logo-box{
+                position: relative;
+                .footer-logo {
+                    img {
+                        position: relative;
+                    }
+                }
+            }
+
+            .footer-nav-box {
+                .footer-nav-menu-box {
+                    .footer-nav-menus {
+                        margin: 0;
+                        padding: 0;
+                        .footer-nav-menu-item {
+                            display: inline-block;
+                            float: left;
+                            list-style-type: none;
+                            margin: 0 $spacing 0 0;
+                            &:last-of-type {
+                                margin-right: 0;
+                            }
+                            a {
+                                &.footer-nav-menu {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .powered-by-box {
+                .powered-by {
+                    position: relative;
+                    text-align: right;
+                    p {
+                    }
+                }
+            }
+        }
+    }
+}

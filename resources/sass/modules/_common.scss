@@ -1,0 +1,220 @@
+
+// Row and Columns Default Setting CSS
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$spacing / 2;
+    margin-left: -$spacing / 2;
+    .col {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-right: $spacing / 2;
+        padding-left: $spacing / 2;
+    }
+    @include startSmall {
+        .s1 {
+            flex: 0 0 auto;
+            width: 8.333%;
+        }
+        .s2 {
+            flex: 0 0 auto;
+            width: 16.6666666667%;
+        }
+        .s3 {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+        .s4 {
+            flex: 0 0 auto;
+            width: 33.3333333333%;
+        }
+        .s5 {
+            flex: 0 0 auto;
+            width: 41.6666666667%;
+        }
+        .s6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+        .s7 {
+            flex: 0 0 auto;
+            width: 58.3333333333%;
+        }
+        .s8 {
+            flex: 0 0 auto;
+            width: 66.6666666667%;
+        }
+        .s9 {
+            flex: 0 0 auto;
+            width: 75%;
+        }
+        .s10 {
+            flex: 0 0 auto;
+            width: 83.3333333333%;
+        }
+        .s11 {
+            flex: 0 0 auto;
+            width: 91.6666666667%;
+        }
+        .s12 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+    }
+    @include startMedium {
+        .m1 {
+            flex: 0 0 auto;
+            width: 8.333%;
+        }
+        .m2 {
+            flex: 0 0 auto;
+            width: 16.6666666667%;
+        }
+        .m3 {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+        .m4 {
+            flex: 0 0 auto;
+            width: 33.3333333333%;
+        }
+        .m5 {
+            flex: 0 0 auto;
+            width: 41.6666666667%;
+        }
+        .m6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+        .m7 {
+            flex: 0 0 auto;
+            width: 58.3333333333%;
+        }
+        .m8 {
+            flex: 0 0 auto;
+            width: 66.6666666667%;
+        }
+        .m9 {
+            flex: 0 0 auto;
+            width: 75%;
+        }
+        .m10 {
+            flex: 0 0 auto;
+            width: 83.3333333333%;
+        }
+        .m11 {
+            flex: 0 0 auto;
+            width: 91.6666666667%;
+        }
+        .m12 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+    }
+    @include startLarge {
+        .l1 {
+            flex: 0 0 auto;
+            width: 8.333%;
+        }
+        .l2 {
+            flex: 0 0 auto;
+            width: 16.6666666667%;
+        }
+        .l3 {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+        .l4 {
+            flex: 0 0 auto;
+            width: 33.3333333333%;
+        }
+        .l5 {
+            flex: 0 0 auto;
+            width: 41.6666666667%;
+        }
+        .l6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+        .l7 {
+            flex: 0 0 auto;
+            width: 58.3333333333%;
+        }
+        .l8 {
+            flex: 0 0 auto;
+            width: 66.6666666667%;
+        }
+        .l9 {
+            flex: 0 0 auto;
+            width: 75%;
+        }
+        .l10 {
+            flex: 0 0 auto;
+            width: 83.3333333333%;
+        }
+        .l11 {
+            flex: 0 0 auto;
+            width: 91.6666666667%;
+        }
+        .l12 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+    }
+}
+
+// Main Div Setting
+.main-div {
+    &.background-image {
+        background-image: url('/assets/images/sign-up-in-bg-top-left.png'), url('/assets/images/sign-up-in-bg-top-center.png'), url('/assets/images/sign-up-in-bg-top-right.png'), url('/assets/images/sign-up-in-bg-bottom-left.png'), url('/assets/images/sign-up-in-bg-bottom-right.png');
+        background-repeat: no-repeat;
+        //background-size: 666px 691px, 636px 242px, 511px 769px;
+        background-size: 333px 345px, 318px 121px, 255px 384px, 727px 546px, 758px 657px;
+        background-position: top left, top center, top right, bottom 0 left, bottom 121px right;
+        &.background-colour {
+            background-color: $primary-colour;
+        }
+    }
+}
+
+
+.flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: row;
+}
+.flex-column {
+    flex-direction: column;
+}
+.flex-horizontal-center {
+    justify-content: center;
+}
+.flex-horizontal-space-between {
+    justify-content: space-between;
+}
+.flex-horizontal-right {
+    justify-content: flex-end;
+}
+.flex-horizontal-left {
+    justify-content: flex-start;
+}
+.flex-vertical-center {
+    align-items: center;
+}
+.flex-vertical-top {
+    align-items: flex-start;
+}
+.flex-vertical-bottom {
+    align-items: flex-end;
+}
+.valign {
+    vertical-align: middle;
+}
+.padding-0 {
+    padding: 0;
+}
+.margin-0 {
+    margin: 0;
+}

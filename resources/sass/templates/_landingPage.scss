@@ -1,0 +1,83 @@
+
+// Landing Page CSS
+.landing-sec {
+    .landing-box {
+
+
+        .landing-style-con {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 116px 0 86px;
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 729px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: 0 auto;
+                z-index: -1;
+                background-color: $colour-two;
+            }
+
+            .list-section-con {
+                padding: 0 0 94px;
+                .summary-list-con {
+                    .summary-list-box {
+                        display: block;
+                        max-width: 1125px;
+                        width: 100%;
+                        height: auto;
+                        margin: 0 auto;
+                        .summary-list {
+                            .summary-list-item-box {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            } // summary list container end
+
+            .sign-up-in-bg {
+                .sign-up-in-sec {
+                    .sign-up-in-con {
+                        max-width: 723px;
+                        .sign-up-in-box {
+                            .sign-up-in-header{
+                                .sign-up-in-heading{
+                                    text-align: center;
+                                    h1 {
+                                        font-size: $h3-font-m;
+                                    }
+                                    h2 {
+                                        font-size: $h3-font-m;
+                                    }
+                                }
+                            }
+                            .sign-up-in-content {
+                                .sign-up-in-form-box {
+                                    .form-input-box {
+                                        label {
+                                            &.label-title {
+                                                &.radio-checkbox-setting {
+                                                    margin-bottom: 45px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}
