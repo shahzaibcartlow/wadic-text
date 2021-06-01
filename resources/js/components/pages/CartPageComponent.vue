@@ -138,7 +138,6 @@ export default {
     data() {
         return {
             userCart: this.$store.state.cart,
-            ipAddress: '',
         }
     },
     methods: {
@@ -147,7 +146,7 @@ export default {
             const tierId = $event.target.value;
             this.$store.dispatch('addTierToCart', {
                 tierId: tierId,
-                ipAddress: "this",
+                ipAddress: this.app.ipAddress,
             });
             this.userCart = this.$store.state.cart;
             this.app.loading = false;
@@ -157,6 +156,7 @@ export default {
             const storeCapacityValue = $event.target.value;
             this.$store.dispatch('addStoreCapacityToCart', {
                 storeCapacityValue: storeCapacityValue,
+                ipAddress: this.app.ipAddress,
             });
             this.userCart = this.$store.state.cart;
             this.app.loading = false;
@@ -166,6 +166,7 @@ export default {
             const processorValue = $event.target.value;
             this.$store.dispatch('addProcessorToCart', {
                 processorValue: processorValue,
+                ipAddress: this.app.ipAddress,
             });
             this.userCart = this.$store.state.cart;
             this.app.loading = false;
@@ -175,6 +176,7 @@ export default {
             const ramValue = $event.target.value;
             this.$store.dispatch('addRamToCart', {
                 ramValue: ramValue,
+                ipAddress: this.app.ipAddress,
             });
             this.userCart = this.$store.state.cart;
             this.app.loading = false;
@@ -184,23 +186,32 @@ export default {
             const trafficValue = $event.target.value;
             this.$store.dispatch('addTrafficToCart', {
                 trafficValue: trafficValue,
+                ipAddress: this.app.ipAddress,
             });
             this.userCart = this.$store.state.cart;
             this.app.loading = false;
         },
-        getIPAddress(){
+        getCartDefault(){
+            this.app.req.get(`/get_user_cart/${this.app.ipAddress}`)
+                .then( response => {
+                    if( response.data.code === 0 ){
 
-            this.app.req.post("/auth/register", data)
-                .then(response => {
-                    if( response.data.code === 0 ) {
-                        this.app.loading = false;
+                        if( response.data.code === 0 ) {
+                            this.$store.dispatch('setUserDetailInCart', {
+                                tierId: response.data.createUserDetail.tierId,
+                                storeCapacity: response.data.createUserDetail.storeCapacity,
+                                processor: response.data.createUserDetail.processor,
+                                ram: response.data.createUserDetail.ram,
+                                traffic: response.data.createUserDetail.traffic,
+                                ipAddress: response.data.createUserDetail.ipAddress,
+                            });
+                        }
+                        console.log(this.$store.state.cart);
+
                     }
                 })
-                .catch(error => {
-                    this.app.loading = false;
-                    this.app.errorAlert( error.response.data );
-                })
-        }
+                .catch( /*error => console.log(error.data)*/ );
+        },
     },
     computed: {
         tiers(){
@@ -209,6 +220,7 @@ export default {
     },
     mounted() {
         this.$store.dispatch("getTiers");
+        this.getCartDefault();
     }
 }
 </script>

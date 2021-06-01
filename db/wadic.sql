@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2021 at 08:49 PM
+-- Generation Time: Jun 01, 2021 at 11:00 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.25
 
@@ -58,7 +58,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2021_06_01_154732_create_tiers_table', 2),
-(5, '2021_06_01_154852_create_processors_table', 2);
+(5, '2021_06_01_154852_create_processors_table', 2),
+(6, '2021_06_01_192823_create_store_user_sessions_table', 3);
 
 -- --------------------------------------------------------
 
@@ -85,6 +86,31 @@ CREATE TABLE `processors` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store_user_sessions`
+--
+
+CREATE TABLE `store_user_sessions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ip_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tier_id` int(11) DEFAULT NULL,
+  `store_capacity` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `processor` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `traffic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `store_user_sessions`
+--
+
+INSERT INTO `store_user_sessions` (`id`, `ip_address`, `tier_id`, `store_capacity`, `processor`, `ram`, `traffic`, `created_at`, `updated_at`) VALUES
+(1, '127.0.0.1', 2, '454', '12', '24', '36', '2021-06-01 14:54:38', '2021-06-01 15:57:52');
 
 -- --------------------------------------------------------
 
@@ -161,6 +187,12 @@ ALTER TABLE `processors`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `store_user_sessions`
+--
+ALTER TABLE `store_user_sessions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tiers`
 --
 ALTER TABLE `tiers`
@@ -188,13 +220,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `processors`
 --
 ALTER TABLE `processors`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `store_user_sessions`
+--
+ALTER TABLE `store_user_sessions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tiers`

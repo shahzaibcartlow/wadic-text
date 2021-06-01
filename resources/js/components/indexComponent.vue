@@ -39,6 +39,7 @@ export default {
             loading: false,
             fullPage: true,
             initiated: false,
+            ipAddress: '',
             req: axios.create({
                 baseUrl: BASE_URL
             }),
@@ -57,9 +58,22 @@ export default {
                     this.initiated = true;
                 });
         },
+        getIPAddress(){
+            this.req.get("/get_ip")
+                .then(response => {
+                    if( response.data.code === 0 ) {
+                        this.ipAddress = response.data.ip;
+                        this.loading = false;
+                    }
+                })
+                .catch(error => {
+                    this.loading = false;
+                });
+        },
     },
     mounted() {
         this.init();
+        this.getIPAddress();
     },
     mixins: [AlertBox]
 }

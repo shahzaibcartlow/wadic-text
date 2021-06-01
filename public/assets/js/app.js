@@ -2130,6 +2130,7 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       fullPage: true,
       initiated: false,
+      ipAddress: '',
       req: axios.create({
         baseUrl: BASE_URL
       })
@@ -2148,10 +2149,23 @@ __webpack_require__.r(__webpack_exports__);
         _this.loading = false;
         _this.initiated = true;
       });
+    },
+    getIPAddress: function getIPAddress() {
+      var _this2 = this;
+
+      this.req.get("/get_ip").then(function (response) {
+        if (response.data.code === 0) {
+          _this2.ipAddress = response.data.ip;
+          _this2.loading = false;
+        }
+      })["catch"](function (error) {
+        _this2.loading = false;
+      });
     }
   },
   mounted: function mounted() {
     this.init();
+    this.getIPAddress();
   },
   mixins: [_mixins_alertBoxMixin__WEBPACK_IMPORTED_MODULE_2__.default]
 });
@@ -2309,8 +2323,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      userCart: this.$store.state.cart,
-      ipAddress: ''
+      userCart: this.$store.state.cart
     };
   },
   methods: {
@@ -2319,7 +2332,7 @@ __webpack_require__.r(__webpack_exports__);
       var tierId = $event.target.value;
       this.$store.dispatch('addTierToCart', {
         tierId: tierId,
-        ipAddress: "this"
+        ipAddress: this.app.ipAddress
       });
       this.userCart = this.$store.state.cart;
       this.app.loading = false;
@@ -2328,7 +2341,8 @@ __webpack_require__.r(__webpack_exports__);
       this.app.loading = true;
       var storeCapacityValue = $event.target.value;
       this.$store.dispatch('addStoreCapacityToCart', {
-        storeCapacityValue: storeCapacityValue
+        storeCapacityValue: storeCapacityValue,
+        ipAddress: this.app.ipAddress
       });
       this.userCart = this.$store.state.cart;
       this.app.loading = false;
@@ -2337,7 +2351,8 @@ __webpack_require__.r(__webpack_exports__);
       this.app.loading = true;
       var processorValue = $event.target.value;
       this.$store.dispatch('addProcessorToCart', {
-        processorValue: processorValue
+        processorValue: processorValue,
+        ipAddress: this.app.ipAddress
       });
       this.userCart = this.$store.state.cart;
       this.app.loading = false;
@@ -2346,7 +2361,8 @@ __webpack_require__.r(__webpack_exports__);
       this.app.loading = true;
       var ramValue = $event.target.value;
       this.$store.dispatch('addRamToCart', {
-        ramValue: ramValue
+        ramValue: ramValue,
+        ipAddress: this.app.ipAddress
       });
       this.userCart = this.$store.state.cart;
       this.app.loading = false;
@@ -2355,23 +2371,31 @@ __webpack_require__.r(__webpack_exports__);
       this.app.loading = true;
       var trafficValue = $event.target.value;
       this.$store.dispatch('addTrafficToCart', {
-        trafficValue: trafficValue
+        trafficValue: trafficValue,
+        ipAddress: this.app.ipAddress
       });
       this.userCart = this.$store.state.cart;
       this.app.loading = false;
     },
-    getIPAddress: function getIPAddress() {
+    getCartDefault: function getCartDefault() {
       var _this = this;
 
-      this.app.req.post("/auth/register", data).then(function (response) {
+      this.app.req.get("/get_user_cart/".concat(this.app.ipAddress)).then(function (response) {
         if (response.data.code === 0) {
-          _this.app.loading = false;
-        }
-      })["catch"](function (error) {
-        _this.app.loading = false;
+          if (response.data.code === 0) {
+            _this.$store.dispatch('setUserDetailInCart', {
+              tierId: response.data.createUserDetail.tierId,
+              storeCapacity: response.data.createUserDetail.storeCapacity,
+              processor: response.data.createUserDetail.processor,
+              ram: response.data.createUserDetail.ram,
+              traffic: response.data.createUserDetail.traffic,
+              ipAddress: response.data.createUserDetail.ipAddress
+            });
+          }
 
-        _this.app.errorAlert(error.response.data);
-      });
+          console.log(_this.$store.state.cart);
+        }
+      })["catch"]();
     }
   },
   computed: {
@@ -2381,6 +2405,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.$store.dispatch("getTiers");
+    this.getCartDefault();
   }
 });
 
@@ -2830,9 +2855,6 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vuex__WEBPACK_IMPORTED_MODULE_2__.default);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_2__.default.Store({
   state: {
-    userDetail: {
-      ipAddress: ''
-    },
     tiers: [],
     cart: {
       tier: {
@@ -2842,7 +2864,10 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__.default.Store({
       storeCapacity: "Dummy",
       processor: "Dummy",
       ram: "Dummy",
-      traffic: "Dummy"
+      traffic: "Dummy",
+      userDetail: {
+        ipAddress: ''
+      }
     }
   },
   getters: {},
@@ -2852,33 +2877,105 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__.default.Store({
         return item.id == payload.tierId;
       });
       state.cart.tier.id = payload.tierId;
+      state.cart.userDetail.ipAddress = payload.ipAddress;
 
       if (tierInCart) {
         state.cart.tier.title = tierInCart.title;
       }
+
+      var data = {
+        ipAddress: state.cart.userDetail.ipAddress,
+        tierId: state.cart.tier.id
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/store_user_session', data).then(function (response) {
+        if (response.data.code === 0) {
+          state.cart.tier.id = response.data.createUserDetail.tierId;
+          state.cart.userDetail.ipAddress = response.data.createUserDetail.ipAddress;
+        }
+      })["catch"]();
     },
     ADD_STORE_CAPACITY_TO_CART: function ADD_STORE_CAPACITY_TO_CART(state, payload) {
       state.cart.storeCapacity = payload.storeCapacityValue;
+      state.cart.userDetail.ipAddress = payload.ipAddress;
+      var data = {
+        ipAddress: state.cart.userDetail.ipAddress,
+        storeCapacity: state.cart.storeCapacity
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/store_user_session', data).then(function (response) {
+        if (response.data.code === 0) {
+          state.cart.storeCapacity = response.data.createUserDetail.storeCapacity;
+          state.cart.userDetail.ipAddress = response.data.createUserDetail.ipAddress;
+        }
+      })["catch"]();
     },
     ADD_PROCESSOR_TO_CART: function ADD_PROCESSOR_TO_CART(state, payload) {
       state.cart.processor = payload.processorValue;
+      state.cart.userDetail.ipAddress = payload.ipAddress;
+      var data = {
+        ipAddress: state.cart.userDetail.ipAddress,
+        processor: state.cart.processor
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/store_user_session', data).then(function (response) {
+        if (response.data.code === 0) {
+          state.cart.processor = response.data.createUserDetail.processor;
+          state.cart.userDetail.ipAddress = response.data.createUserDetail.ipAddress;
+        }
+      })["catch"]();
     },
     ADD_RAM_TO_CART: function ADD_RAM_TO_CART(state, payload) {
       state.cart.ram = payload.ramValue;
+      state.cart.userDetail.ipAddress = payload.ipAddress;
+      var data = {
+        ipAddress: state.cart.userDetail.ipAddress,
+        ram: state.cart.ram
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/store_user_session', data).then(function (response) {
+        if (response.data.code === 0) {
+          state.cart.ram = response.data.createUserDetail.ram;
+          state.cart.userDetail.ipAddress = response.data.createUserDetail.ipAddress;
+        }
+      })["catch"]();
     },
     ADD_TRAFFIC_TO_CART: function ADD_TRAFFIC_TO_CART(state, payload) {
       state.cart.traffic = payload.trafficValue;
+      state.cart.userDetail.ipAddress = payload.ipAddress;
+      var data = {
+        ipAddress: state.cart.userDetail.ipAddress,
+        traffic: state.cart.traffic
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/store_user_session', data).then(function (response) {
+        if (response.data.code === 0) {
+          state.cart.traffic = response.data.createUserDetail.traffic;
+          state.cart.userDetail.ipAddress = response.data.createUserDetail.ipAddress;
+        }
+      })["catch"]();
+    },
+    SET_USER_DETAIL_IN_CART: function SET_USER_DETAIL_IN_CART(state, payload) {
+      state.cart.tier.id = payload.tierId !== "" ? payload.tierId : "Dummy Text";
+      var tierInCart = state.tiers.find(function (item) {
+        return item.id == payload.tierId;
+      });
+
+      if (tierInCart) {
+        state.cart.tier.title = tierInCart.title;
+      }
+
+      state.cart.storeCapacity = payload.storeCapacity !== "" || payload.storeCapacity === "null" ? payload.storeCapacity : "Dummy Text";
+      state.cart.processor = payload.processor !== "" || payload.processor === "null" ? payload.processor : "Dummy Text";
+      state.cart.ram = payload.ram !== "" || payload.ram === "null" ? payload.ram : "Dummy Text";
+      state.cart.traffic = payload.traffic !== "" || payload.traffic === "null" ? payload.traffic : "Dummy Text";
+      state.cart.userDetail.ipAddress = payload.ipAddress !== "" || payload.ipAddress === "null" ? payload.ipAddress : "Dummy Text";
     },
     SET_TIERS: function SET_TIERS(state, tiers) {
       state.tiers = tiers.tiers;
-    },
-    SET_PROCESSORS: function SET_PROCESSORS(state, processors) {
-      state.processors = processors;
     }
   },
   actions: {
     addTierToCart: function addTierToCart(context, payload) {
       context.commit("ADD_TIER_TO_CART", payload);
+    },
+    setUserDetailInCart: function setUserDetailInCart(context, payload) {
+      context.commit("SET_USER_DETAIL_IN_CART", payload);
     },
     addStoreCapacityToCart: function addStoreCapacityToCart(context, payload) {
       context.commit("ADD_STORE_CAPACITY_TO_CART", payload);
@@ -39680,17 +39777,25 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "list-body" }, [
         _c("ul", { staticClass: "list" }, [
-          _c("li", { staticClass: "list-item" }, [
-            _vm._v(
-              "\n                    " + _vm._s(_vm.userCart.tier.title) + " "
-            ),
-            _c("span", [_vm._v(" $3.80 ")])
-          ]),
+          _vm.userCart.processor
+            ? _c("li", { staticClass: "list-item" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.userCart.processor) +
+                    " "
+                ),
+                _c("span", [_vm._v(" $15.00 ")])
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c("li", { staticClass: "list-item" }, [
-            _vm._v("\n                    " + _vm._s(_vm.userCart.ram) + " "),
-            _c("span", [_vm._v(" $6.12 ")])
-          ])
+          _vm.userCart.ram
+            ? _c("li", { staticClass: "list-item" }, [
+                _vm._v(
+                  "\n                    " + _vm._s(_vm.userCart.ram) + " "
+                ),
+                _c("span", [_vm._v(" $6.12 ")])
+              ])
+            : _vm._e()
         ])
       ])
     ]),
@@ -39702,23 +39807,27 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "list-body" }, [
         _c("ul", { staticClass: "list" }, [
-          _c("li", { staticClass: "list-item" }, [
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.userCart.storeCapacity) +
-                " "
-            ),
-            _c("span", [_vm._v(" $15.00 ")])
-          ]),
+          _vm.userCart.tier.title
+            ? _c("li", { staticClass: "list-item" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.userCart.tier.title) +
+                    " "
+                ),
+                _c("span", [_vm._v(" $3.80 ")])
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c("li", { staticClass: "list-item" }, [
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.userCart.storeCapacity) +
-                " "
-            ),
-            _c("span", [_vm._v(" $15.00 ")])
-          ])
+          _vm.userCart.storeCapacity
+            ? _c("li", { staticClass: "list-item" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.userCart.storeCapacity) +
+                    " "
+                ),
+                _c("span", [_vm._v(" $15.00 ")])
+              ])
+            : _vm._e()
         ])
       ])
     ]),
@@ -39730,12 +39839,14 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "list-body" }, [
         _c("ul", { staticClass: "list" }, [
-          _c("li", { staticClass: "list-item" }, [
-            _vm._v(
-              "\n                    " + _vm._s(_vm.userCart.traffic) + " "
-            ),
-            _c("span", [_vm._v(" $2.80 ")])
-          ])
+          _vm.userCart.traffic
+            ? _c("li", { staticClass: "list-item" }, [
+                _vm._v(
+                  "\n                    " + _vm._s(_vm.userCart.traffic) + " "
+                ),
+                _c("span", [_vm._v(" $2.80 ")])
+              ])
+            : _vm._e()
         ])
       ])
     ])
